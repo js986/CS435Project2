@@ -23,6 +23,9 @@ class GraphSearch:
         visited.append(start)
         while len(stack) > 0:
             current = stack.pop()
+            if current == end:
+                visited.append(current)
+                return visited
             for i in current.neighbors:
                 if i not in visited:
                     visited.append(i)

@@ -14,7 +14,7 @@ class Graph:
     def __init__(self):
         self.verticies = list()
 
-    def addNode(nodeVal):
+    def addNode(self,nodeVal):
         node = Graph(nodeVal)
         self.verticies.append(node)
 
