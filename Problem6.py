@@ -20,7 +20,6 @@ def astar(sourceNode,destNode):
     path = list()
     distances = dict()
     current = sourceNode
-    print(sourceNode.x, ",", sourceNode.y)
     distances[current] = findManhattanDistance(sourceNode,destNode)
     while current != destNode and current != None:
         path.append(current)
@@ -38,18 +37,18 @@ def astar(sourceNode,destNode):
                     current = j
         if current == path[-1]:
             break
+    if current == destNode:
+        path.append(current)
+    else:
+        print("Path to destination node could not be found")
     return path
 
 def findManhattanDistance(p1,p2):
     return abs(p1.x - p2.x) + abs(p1.y - p2.y)
 
-graph = createRandomGridGraph(5)
-"""
-for i in graph.grid[0]:
-    for j in i.neighbors:
-        graph.printGridNode(j)
-    print('\n')
-"""
-p = astar(graph.grid[0][0],graph.grid[4][4])
+graph = createRandomGridGraph(100)
+
+p = astar(graph.grid[0][0],graph.grid[99][99])
 for i in p:
     graph.printGridNode(i)
+

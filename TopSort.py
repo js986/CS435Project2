@@ -27,22 +27,20 @@ class TopSort:
 
 
     def mDFS(dgraph):
-        if dgraph == None:
-            print("No directed graph provided")
-            return
         stack = list()
-        visited = list()
-        stack.append(start)
-        visited.append(start)
-        while len(stack) > 0:
-            current = stack.pop()
-            for i in current.neighbors:
-                if i not in visited:
-                    visited.append(i)
-                    stack.append(i)
-        return visited
+        for vertex in dgraph.verticies:
+            TopSort.mDFShelper(vertex,stack)
+        stack.reverse()
+        return stack
 
     #Helper Methods
+    def mDFShelper(current,stack):
+        current.visited = True
+        for i in current.neighbors:
+            if i.visited == False:
+                TopSort.mDFShelper(i,stack)
+        stack.append(current)
+
     def findInDegree(graph,node):
         if node not in graph.verticies:
             print("Given node is not in graph")

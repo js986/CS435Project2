@@ -6,7 +6,7 @@ class DirectedGraph:
         self.verticies = list()
 
     def addNode(self,nodeVal):
-        node = DirectedGraph(nodeVal)
+        node = GraphNode(nodeVal)
         self.verticies.append(node)
 
     def addDirectedEdge(self,first,second):
@@ -22,6 +22,4 @@ class DirectedGraph:
         first.neighbors.remove(second)
 
     def getAllNodes(self):
-        for i in self.verticies:
-            print(i.data)
         return self.verticies

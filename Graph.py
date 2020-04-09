@@ -6,8 +6,6 @@ class GraphNode:
         self.neighbors = list()
         self.visited = False
 
-    def setVisited(self):
-        self.visited = True
 
 
 class Graph:
