@@ -11,13 +11,11 @@ class DirectedGraph:
 
     def addDirectedEdge(self,first,second):
         if first == None or second == None:
-            print("One of the nodes is null")
             return
         first.neighbors.append(second)
 
     def removeDirectedEdge(self,first,second):
         if first == None or second == None:
-            print("One of the nodes is null")
             return
         first.neighbors.remove(second)
 

@@ -15,15 +15,12 @@ def createRandomUnweightedGraphIter(n):
     return graph
 
 def createLinkedList(n):
-    num = random.randint(0,100000)
     graph = Graph.Graph()
-    node = Graph.GraphNode(num)
-    graph.verticies.append(node)
-    for i in range(1,n):
+    for i in range(0,n):
         num = random.randint(0,100000)
-        node = Graph.GraphNode(num)
-        graph.verticies.append(node)
-        graph.addUndirectedEdge(node,graph.verticies[-2])
+        graph.addNode(num)
+        if i > 0:
+            graph.addUndirectedEdge(graph.verticies[-1],graph.verticies[-2])
     return graph
 
 def BFTRecLinkedList(graph):

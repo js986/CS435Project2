@@ -9,7 +9,7 @@ class GraphSearch:
     def DFShelper(self,start,end,visited):
         visited.append(start)
         for i in start.neighbors:
-            if i == end:
+            if start == end:
                 visited.append(end)
                 return visited
             elif i not in visited:
@@ -64,10 +64,10 @@ class GraphSearch:
             if vertex not in visited:
                 visited.append(vertex)
                 q.append(vertex)
-            while len(q) > 0:
-                current = q.popleft()
-                for node in current.neighbors:
-                    if node not in visited:
-                        visited.append(node)
-                        q.append(node)
+                while len(q) > 0:
+                    current = q.popleft()
+                    for node in current.neighbors:
+                        if node not in visited:
+                            visited.append(node)
+                            q.append(node)
         return visited

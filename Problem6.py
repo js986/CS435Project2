@@ -1,6 +1,7 @@
 from GridGraph import GridGraph
 import random
 import sys
+import MinHeap
 
 def createRandomGridGraph(n):
     graph = GridGraph()
@@ -23,18 +24,19 @@ def astar(sourceNode,destNode):
     distances[current] = findManhattanDistance(sourceNode,destNode)
     while current != destNode and current != None:
         path.append(current)
-        #GridGraph().printGridNode(current)
         if len(current.neighbors) == 0:
             break
         for i in current.neighbors:
             if i not in path:
                 distances[i] = findManhattanDistance(i,destNode)
+
         minvalue = sys.maxsize
         for j in distances.keys():
             if j not in path:
                 if distances[j] < minvalue:
                     minvalue = distances[j]
                     current = j
+
         if current == path[-1]:
             break
     if current == destNode:
@@ -51,4 +53,3 @@ graph = createRandomGridGraph(100)
 p = astar(graph.grid[0][0],graph.grid[99][99])
 for i in p:
     graph.printGridNode(i)
-
